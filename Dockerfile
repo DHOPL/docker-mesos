@@ -6,8 +6,7 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources
     apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF
 
 RUN apt-get -y update && \
-    apt-get -y install mesos=0.26.0-0.2.145.ubuntu1404 && \
+    apt-get -y install mesos=1.1.0-2.0.107.ubuntu1404 && \
     apt-get install -y vim
 
-ADD supervisord.conf /etc/
-CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
+CMD ["mesos-master"]
